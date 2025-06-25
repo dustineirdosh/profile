@@ -72,11 +72,11 @@ let simulation = d3.forceSimulation()
 
 // Load all domain files (adjust filenames as needed)
 Promise.all([
-  fetch("/hypergraph/eirdosh_education.json").then(r => r.json()),
-  fetch("/hypergraph/eirdosh_skills.json").then(r => r.json()),
-  fetch("/hypergraph/eirdosh_interests.json").then(r => r.json()),
-  fetch("/hypergraph/eirdosh_projects.json").then(r => r.json()),
-  fetch("/hypergraph/eirdosh_publications.json").then(r => r.json())
+  fetch("https://github.com/dustineirdosh/profile/blob/main/hypergraph/eirdosh_education.json").then(r => r.json()),
+  fetch("https://github.com/dustineirdosh/profile/blob/main/hypergraph/eirdosh_skills.json").then(r => r.json()),
+  fetch("https://github.com/dustineirdosh/profile/blob/main/hypergraph/eirdosh_interests.json").then(r => r.json()),
+  fetch("https://github.com/dustineirdosh/profile/blob/main/hypergraph/eirdosh_projects.json").then(r => r.json()),
+  fetch("https://github.com/dustineirdosh/profile/blob/main/hypergraph/eirdosh_publications.json").then(r => r.json())
 ]).then(datasets => {
 
   let nodes = [], links = [];
