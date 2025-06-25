@@ -1,1 +1,93 @@
+{
+  "domain": "education",
+  "nodes": [
+    {
+      "id": "edu_uni_jena",
+      "label": "Friedrich Schiller University Jena",
+      "type": "institution",
+      "properties": {
+        "location": "Jena, Germany",
+        "website": "https://www.biodidaktik.uni-jena.de/arbeitsgruppe/dr-dustin-eirdosh"
+      }
+    },
+    {
+      "id": "edu_phd_bio_ed",
+      "label": "PhD in Biology Education",
+      "type": "degree",
+      "properties": {
+        "startYear": 2019,
+        "endYear": 2022,
+        "institution": "Friedrich Schiller University Jena",
+        "description": "PhD with Magna Cum Laude (1,1), hosted by the Department of Comparative Cultural Psychology, Max Planck Institute for Evolutionary Anthropology. Focus on teaching human behavior and evolution as interdisciplinary themes."
+      }
+    },
+    {
+      "id": "edu_uni_kassel",
+      "label": "University of Kassel",
+      "type": "institution",
+      "properties": {
+        "location": "Witzenhausen, Germany"
+      }
+    },
+    {
+      "id": "edu_msc_food_consumer",
+      "label": "MSc International Food Business & Consumer Science",
+      "type": "degree",
+      "properties": {
+        "startYear": 2012,
+        "endYear": 2015,
+        "institution": "University of Kassel",
+        "description": "Focus on Education for Sustainable Development (ESD)."
+      }
+    },
+    {
+      "id": "edu_college_atlantic",
+      "label": "College of the Atlantic",
+      "type": "institution",
+      "properties": {
+        "location": "Bar Harbor, Maine, USA"
+      }
+    },
+    {
+      "id": "edu_ba_human_ecology",
+      "label": "BA Human Ecology",
+      "type": "degree",
+      "properties": {
+        "startYear": 2000,
+        "endYear": 2004,
+        "institution": "College of the Atlantic",
+        "description": "Focus on sustainability education and community development."
+      }
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "edu_edge_1",
+      "label": "awarded_by",
+      "source": "edu_phd_bio_ed",
+      "targets": ["edu_uni_jena"],
+      "properties": {
+        "relationshipType": "institutional_award"
+      }
+    },
+    {
+      "id": "edu_edge_2",
+      "label": "awarded_by",
+      "source": "edu_msc_food_consumer",
+      "targets": ["edu_uni_kassel"],
+      "properties": {
+        "relationshipType": "institutional_award"
+      }
+    },
+    {
+      "id": "edu_edge_3",
+      "label": "awarded_by",
+      "source": "edu_ba_human_ecology",
+      "targets": ["edu_college_atlantic"],
+      "properties": {
+        "relationshipType": "institutional_award"
+      }
+    }
+  ]
+}
 
