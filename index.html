@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Knowledge Hypergraph</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #f7f7f7;
+    }
+    #graph {
+      width: 100vw;
+      height: 90vh;
+    }
+    #controls {
+      padding: 10px;
+      background: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    .checkbox-group {
+      margin: 5px 10px;
+      display: inline-block;
+    }
+    .tooltip {
+      position: absolute;
+      background: rgba(255,255,255,0.95);
+      padding: 10px;
+      border: 1px solid #ccc;
+      pointer-events: none;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="controls">
+  <strong>Toggle Node Categories:</strong>
+  <span class="checkbox-group">
+    <label><input type="checkbox" class="category-toggle" value="education" checked> Education</label>
+    <label><input type="checkbox" class="category-toggle" value="skills" checked> Skills</label>
+    <label><input type="checkbox" class="category-toggle" value="interests" checked> Interests</label>
+    <label><input type="checkbox" class="category-toggle" value="projects" checked> Projects</label>
+    <label><input type="checkbox" class="category-toggle" value="publications" checked> Publications</label>
+  </span>
+  <strong>Node Distance:</strong>
+  <input type="range" id="distanceSlider" min="50" max="300" value="150">
+</div>
+
+<svg id="graph"></svg>
+<div class="tooltip" style="display:none"></div>
+
+<script>
+const colorScale = d3.scaleOrdinal()
+  .domain(["education", "skills", "interests", "projects", "publications"])
+  .range(["#6baed6", "#74c476", "#fd8d3c", "#9e9ac8", "#fcbba1"]);
+
+let nodeDistance = 150;
+const tooltip = d3.select(".tooltip");
+
+const svg = d3.select("#graph");
+const width = window.innerWidth;
+const height = window.innerHeight * 0.9;
+svg.attr("width", width).attr("height", height);
+
+let simulation = d3.forceSimulation()
+  .force("link", d3.forceLink().id(d => d.id).distance(() => nodeDistance))
+  .force("charge", d3.forceManyBody().strength(-300))
+  .force("center", d3.forceCenter(width / 2, height / 2));
+
+// Load all domain files (adjust filenames as needed)
+Promise.all([
+  fetch("/hypergraph/eirdosh_education.json").then(r => r.json()),
+  fetch("/hypergraph/eirdosh_skills.json").then(r => r.json()),
+  fetch("/hypergraph/eirdosh_interests.json").then(r => r.json()),
+  fetch("/hypergraph/eirdosh_projects.json").then(r => r.json()),
+  fetch("/hypergraph/eirdosh_publications.json").then(r => r.json())
+]).then(datasets => {
+
+  let nodes = [], links = [];
+
+  datasets.forEach(dataset => {
+    dataset.nodes.forEach(n => nodes.push({...n, domain: dataset.domain}));
+    dataset.hyperedges.forEach(e => {
+      e.targets.forEach(t => {
+        links.push({source: e.source, target: t, label: e.label, domain: dataset.domain});
+      });
+    });
+  });
+
+  drawGraph(nodes, links);
+});
+
+function drawGraph(nodes, links) {
+  const link = svg.append("g")
+    .attr("stroke", "#aaa")
+    .selectAll("line")
+    .data(links)
+    .enter().append("line");
+
+  const node = svg.append("g")
+    .selectAll("circle")
+    .data(nodes)
+    .enter().append("circle")
+    .attr("r", 8)
+    .attr("fill", d => colorScale(d.domain))
+    .attr("stroke", "#fff")
+    .attr("stroke-width", 1.5)
+    .on("mouseover", (event, d) => showTooltip(event, d))
+    .on("mouseout", hideTooltip)
+    .on("click", (event, d) => highlightNode(d.id));
+
+  const linkForce = simulation.force("link");
+
+  simulation.nodes(nodes).on("tick", ticked);
+  linkForce.links(links);
+
+  d3.selectAll(".category-toggle").on("change", () => filterNodes(node, link, nodes, links));
+  d3.select("#distanceSlider").on("input", function() {
+    nodeDistance = +this.value;
+    linkForce.distance(nodeDistance);
+    simulation.alpha(1).restart();
+  });
+
+  function ticked() {
+    link.attr("x1", d => d.source.x)
+        .attr("y1", d => d.source.y)
+        .attr("x2", d => d.target.x)
+        .attr("y2", d => d.target.y);
+
+    node.attr("cx", d => d.x)
+        .attr("cy", d => d.y);
+  }
+}
+
+function filterNodes(nodeSelection, linkSelection, allNodes, allLinks) {
+  const activeDomains = [];
+  d3.selectAll(".category-toggle:checked").each(function() {
+    activeDomains.push(this.value);
+  });
+
+  nodeSelection.style("display", d => activeDomains.includes(d.domain) ? null : "none");
+  linkSelection.style("display", d => activeDomains.includes(d.domain) ? null : "none");
+}
+
+function showTooltip(event, d) {
+  tooltip.style("display", "block")
+    .style("left", (event.pageX + 10) + "px")
+    .style("top", (event.pageY + 10) + "px")
+    .html(`<strong>${d.label}</strong><br><em>${d.domain}</em><br>${d.properties.description || ''}`);
+}
+
+function hideTooltip() {
+  tooltip.style("display", "none");
+}
+
+function highlightNode(nodeId) {
+  svg.selectAll("circle").attr("stroke", d => d.id === nodeId ? "black" : "#fff");
+  svg.selectAll("line").attr("stroke", d => d.source.id === nodeId || d.target.id === nodeId ? "#f00" : "#aaa");
+}
+</script>
+</body>
+</html>
