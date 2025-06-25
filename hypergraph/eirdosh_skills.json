@@ -1,1 +1,79 @@
+{
+  "domain": "skills",
+  "nodes": [
+    {
+      "id": "skill_edu_innovation",
+      "label": "Educational Innovation",
+      "type": "skill",
+      "properties": {
+        "proficiencyLevel": "expert",
+        "description": "Design and coordination of innovative educational programs, with a focus on interdisciplinary education, community science, and teacher training."
+      }
+    },
+    {
+      "id": "skill_curriculum_design",
+      "label": "Curriculum Design",
+      "type": "skill",
+      "properties": {
+        "proficiencyLevel": "expert",
+        "description": "Development of educational resources, lesson plans, and interdisciplinary curricula for schools, universities, and non-formal education settings."
+      }
+    },
+    {
+      "id": "skill_systems_thinking",
+      "label": "Systems Thinking",
+      "type": "skill",
+      "properties": {
+        "proficiencyLevel": "advanced",
+        "description": "Application of systems thinking to sustainability science, education, and human behavior research."
+      }
+    },
+    {
+      "id": "skill_agent_based_modeling",
+      "label": "Agent-Based Modeling",
+      "type": "skill",
+      "properties": {
+        "proficiencyLevel": "intermediate",
+        "description": "Development and use of agent-based models (ABM) to simulate social-ecological systems and resource management scenarios."
+      }
+    },
+    {
+      "id": "skill_data_visualization",
+      "label": "Data Visualization",
+      "type": "skill",
+      "properties": {
+        "proficiencyLevel": "intermediate",
+        "description": "Creation of interactive and static visualizations for educational and research purposes using tools such as D3.js and other platforms."
+      }
+    },
+    {
+      "id": "skill_team_leadership",
+      "label": "Team Leadership & Coordination",
+      "type": "skill",
+      "properties": {
+        "proficiencyLevel": "advanced",
+        "description": "Leading interdisciplinary teams, partnership coordination, and project management in educational and scientific contexts."
+      }
+    },
+    {
+      "id": "skill_grant_writing",
+      "label": "Grant Writing",
+      "type": "skill",
+      "properties": {
+        "proficiencyLevel": "advanced",
+        "description": "Conceptualizing, writing, and managing grant proposals for educational and scientific projects."
+      }
+    },
+    {
+      "id": "skill_public_speaking",
+      "label": "Public Speaking & Science Communication",
+      "type": "skill",
+      "properties": {
+        "proficiencyLevel": "advanced",
+        "description": "Delivering professional talks and presentations at scientific conferences, public events, and educational settings."
+      }
+    }
+  ],
+  "hyperedges": []
+}
 
