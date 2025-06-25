@@ -1,0 +1,99 @@
+{
+  "domain": "publications",
+  "nodes": [
+    {
+      "id": "pub_2023_teacher_competencies",
+      "label": "Developing Teacher Competencies for Teaching Evolution",
+      "type": "article",
+      "properties": {
+        "title": "Developing Teacher Competencies for Teaching Evolution across the Primary School Curriculum: A Design Study of a Pre-Service Teacher Education Module",
+        "authors": ["Hanisch, S.", "Eirdosh, D."],
+        "year": 2023,
+        "journal": "Education Sciences",
+        "doi": "10.3390/educsci13080797",
+        "url": "https://doi.org/10.3390/educsci13080797"
+      }
+    },
+    {
+      "id": "pub_2023_community_science_model",
+      "label": "A Community Science Model for Interdisciplinary Evolution Education",
+      "type": "book_chapter",
+      "properties": {
+        "title": "A Community Science Model for Interdisciplinary Evolution Education and School Improvement",
+        "authors": ["Eirdosh, D.", "Hanisch, S."],
+        "year": 2023,
+        "book": "Evolutionary Thinking Across Disciplines",
+        "publisher": "Springer International Publishing",
+        "doi": "10.1007/978-3-031-33358-3_7",
+        "url": "https://doi.org/10.1007/978-3-031-33358-3_7"
+      }
+    },
+    {
+      "id": "pub_2021_cooperative_species",
+      "label": "Are Humans a Cooperative Species?",
+      "type": "article",
+      "properties": {
+        "title": "Are Humans a Cooperative Species? Challenges & Opportunities for Teaching the Evolution of Human Prosociality",
+        "authors": ["Hanisch, S.", "Eirdosh, D."],
+        "year": 2021,
+        "journal": "The American Biology Teacher",
+        "doi": "10.1525/abt.2021.83.6.356",
+        "url": "https://doi.org/10.1525/abt.2021.83.6.356"
+      }
+    },
+    {
+      "id": "pub_2020_interdisciplinary_evolution",
+      "label": "Educational Potential of Teaching Evolution as an Interdisciplinary Science",
+      "type": "article",
+      "properties": {
+        "title": "Educational potential of teaching evolution as an interdisciplinary science",
+        "authors": ["Hanisch, S.", "Eirdosh, D."],
+        "year": 2020,
+        "journal": "Evolution: Education and Outreach",
+        "doi": "10.1186/s12052-020-00138-4",
+        "url": "https://doi.org/10.1186/s12052-020-00138-4"
+      }
+    },
+    {
+      "id": "pub_2019_role_evo_studies",
+      "label": "The Role of Evolutionary Studies in Education for Sustainable Development",
+      "type": "book_chapter",
+      "properties": {
+        "title": "The Role of Evolutionary Studies in Education for Sustainable Development",
+        "authors": ["Eirdosh, D.", "Hanisch, S."],
+        "year": 2019,
+        "book": "Darwin’s Roadmap to the Curriculum: Evolutionary Studies in Higher Education",
+        "publisher": "Oxford University Press"
+      }
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "pub_edge_1",
+      "label": "builds_on",
+      "source": "pub_2023_community_science_model",
+      "targets": ["proj_openevo", "interest_community_science", "interest_school_improvement"],
+      "properties": {
+        "relationshipType": "knowledge_dependency"
+      }
+    },
+    {
+      "id": "pub_edge_2",
+      "label": "builds_on",
+      "source": "pub_2021_cooperative_species",
+      "targets": ["interest_evolution_education", "interest_cultural_evolution"],
+      "properties": {
+        "relationshipType": "knowledge_dependency"
+      }
+    },
+    {
+      "id": "pub_edge_3",
+      "label": "builds_on",
+      "source": "pub_2020_interdisciplinary_evolution",
+      "targets": ["interest_evolution_education", "interest_behavior_sustainability"],
+      "properties": {
+        "relationshipType": "knowledge_dependency"
+      }
+    }
+  ]
+}
