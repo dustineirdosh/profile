@@ -1,1 +1,55 @@
+{
+  "domain": "interests",
+  "nodes": [
+    {
+      "id": "interest_evolution_education",
+      "label": "Evolution Education",
+      "type": "topic",
+      "properties": {
+        "description": "Improving public understanding and interdisciplinary teaching of evolutionary science, particularly human behavior and cooperation."
+      }
+    },
+    {
+      "id": "interest_behavior_sustainability",
+      "label": "Human Behavior & Sustainability",
+      "type": "topic",
+      "properties": {
+        "description": "Exploring human behavior as a conceptual lens for sustainability education and the development of community science approaches."
+      }
+    },
+    {
+      "id": "interest_cultural_evolution",
+      "label": "Cultural Evolution & Education",
+      "type": "topic",
+      "properties": {
+        "description": "Applying insights from cultural evolution science to school improvement, educational innovation, and community development."
+      }
+    },
+    {
+      "id": "interest_noise_governance",
+      "label": "Noise Governance & Policy",
+      "type": "topic",
+      "properties": {
+        "description": "Exploring evidence-based, democratic approaches to neighborhood noise policy as part of broader social behavior and public health concerns."
+      }
+    },
+    {
+      "id": "interest_community_science",
+      "label": "Community Science for Education",
+      "type": "topic",
+      "properties": {
+        "description": "Design and implementation of community-based science initiatives to support local education, resource management, and sustainability."
+      }
+    },
+    {
+      "id": "interest_school_improvement",
+      "label": "Theories of School Improvement",
+      "type": "topic",
+      "properties": {
+        "description": "Developing inclusive, values-driven frameworks for improving educational systems through interdisciplinary collaboration and research."
+      }
+    }
+  ],
+  "hyperedges": []
+}
 
