@@ -1,1 +1,117 @@
+{
+  "domain": "projects",
+  "nodes": [
+    {
+      "id": "proj_openevo",
+      "label": "OpenEvo",
+      "type": "project",
+      "properties": {
+        "description": "An educational innovation platform providing resources, tools, and research for interdisciplinary evolution education and school improvement.",
+        "startYear": 2018,
+        "status": "ongoing",
+        "website": "http://openevo.eva.mpg.de"
+      }
+    },
+    {
+      "id": "proj_global_esd",
+      "label": "Global ESD",
+      "type": "project",
+      "properties": {
+        "description": "A platform supporting Education for Sustainable Development (ESD) with open resources and collaborative projects.",
+        "startYear": 2015,
+        "status": "ongoing",
+        "website": "http://www.globalesd.org"
+      }
+    },
+    {
+      "id": "proj_cultural_evo_education",
+      "label": "Cultural Evolution Society Education Working Group",
+      "type": "project",
+      "properties": {
+        "description": "A multi-stakeholder collaboration to develop applied cultural evolution frameworks for education and sustainability.",
+        "startYear": 2022,
+        "status": "ongoing",
+        "website": "https://ces-transformationfund.org/our-projects/sustainability-awg/"
+      }
+    },
+    {
+      "id": "proj_face_ndc_fao",
+      "label": "FAO FACE-NDC Zambia",
+      "type": "project",
+      "properties": {
+        "description": "Advisory role in developing teacher education, student research, and community science labs as part of Zambia's climate education strategy.",
+        "startYear": 2023,
+        "status": "ongoing",
+        "website": "https://www.fao.org"
+      }
+    },
+    {
+      "id": "proj_amselo",
+      "label": "Amselo - Agent-based Models of Social-Ecological Systems",
+      "type": "project",
+      "properties": {
+        "description": "Development of agent-based models for simulating sustainability scenarios with NetLogo.",
+        "startYear": 2022,
+        "status": "ongoing",
+        "funder": "Joachim Herz Stiftung"
+      }
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "proj_edge_1",
+      "label": "requires",
+      "source": "proj_openevo",
+      "targets": ["skill_edu_innovation", "skill_curriculum_design", "skill_systems_thinking"],
+      "properties": {
+        "relationshipType": "skill_dependency"
+      }
+    },
+    {
+      "id": "proj_edge_2",
+      "label": "related_to",
+      "source": "proj_openevo",
+      "targets": ["interest_evolution_education", "interest_behavior_sustainability", "interest_school_improvement"],
+      "properties": {
+        "relationshipType": "thematic_alignment"
+      }
+    },
+    {
+      "id": "proj_edge_3",
+      "label": "related_to",
+      "source": "proj_global_esd",
+      "targets": ["interest_behavior_sustainability", "interest_community_science"],
+      "properties": {
+        "relationshipType": "thematic_alignment"
+      }
+    },
+    {
+      "id": "proj_edge_4",
+      "label": "related_to",
+      "source": "proj_cultural_evo_education",
+      "targets": ["interest_cultural_evolution", "interest_school_improvement"],
+      "properties": {
+        "relationshipType": "thematic_alignment"
+      }
+    },
+    {
+      "id": "proj_edge_5",
+      "label": "related_to",
+      "source": "proj_face_ndc_fao",
+      "targets": ["interest_community_science", "interest_behavior_sustainability"],
+      "properties": {
+        "relationshipType": "thematic_alignment"
+      }
+    },
+    {
+      "id": "proj_edge_6",
+      "label": "requires",
+      "source": "proj_amselo",
+      "targets": ["skill_agent_based_modeling"],
+      "properties": {
+        "relationshipType": "skill_dependency"
+      }
+    }
+  ]
+}
 JSON
